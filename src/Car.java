@@ -17,7 +17,6 @@ import java.awt.Point;
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 /**
  * La classe Car è
  *
@@ -98,11 +97,11 @@ public class Car extends Thread {
         }
 
     }
-    
+
     public void updateTrafficLight(TrafficLight trafficLight) {
-        
+
         crossroad.setTrafficLight(trafficLight);
-        
+
     }
 
     @Override
