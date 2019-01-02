@@ -97,11 +97,17 @@ public class Car extends Thread {
         }
 
     }
+    
+    public void updateTrafficLight(TrafficLight trafficLight) {
+        
+        crossroad.setTrafficLight(trafficLight);
+        
+    }
 
     @Override
     public String toString() {
 
-        return getName() + " going from " + position + " to " + direction;
+        return getName() + " going from " + location + " to " + direction;
 
     }
 
