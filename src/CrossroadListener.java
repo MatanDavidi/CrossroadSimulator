@@ -20,17 +20,23 @@
  * @author Matan Davidi
  */
 public interface CrossroadListener {
-    
+
     /**
      *
      * @param source
      */
     public void carAdded(Car source);
-    
+
     /**
      *
      * @param source
      */
     public void carPassed(Car source);
-    
+
+    /**
+     *
+     * @param source
+     */
+    public void carPassing(Car source);
+
 }
