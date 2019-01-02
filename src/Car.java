@@ -72,6 +72,7 @@ public class Car extends Thread {
             try {
 
                 carToWait.join();
+                sleep(250);
 
             } catch (InterruptedException ex) {
             }
