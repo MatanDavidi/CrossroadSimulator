@@ -35,11 +35,10 @@ public class Car extends Thread {
 
     private Crossroad crossroad;
 
-    private Car carToWait;
-
-    public Car(Position location, Position direction, Crossroad crossroad) {
+    public Car(Point position, Position location, Position direction, Crossroad crossroad) {
 
         super();
+        this.position = position;
         this.location = location;
         this.direction = direction;
         this.crossroad = crossroad;
