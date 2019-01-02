@@ -40,7 +40,6 @@ public class CrossroadSimulator {
 
             c.getTrafficLight().setLeftLit(false);
             c.getTrafficLight().setDownLit(true);
-            
 
             Thread.sleep(2500);
 
