@@ -151,34 +151,28 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         //Left cars
         for (int i = 0; i < leftCars.size(); i++) {
 
+            int x = startX - i * RADIUS * 2 - MARGIN;
             String id = Integer.toString((int) leftCars.get(i).getId());
 
             g.setColor(Color.YELLOW);
 
-            int x = startX - i * RADIUS * 2 - MARGIN;
-            
-            g.fillOval(x, leftLight.y, RADIUS * 2, RADIUS * 2);
-
+            g.fillOval(leftCars.get(i).position.x, leftCars.get(i).position.y, RADIUS * 2, RADIUS * 2);
             g.setColor(Color.BLACK);
-
-            g.drawString(id, x - RADIUS, leftLight.y - RADIUS);
+            g.drawString(id, leftCars.get(i).position.x + RADIUS, leftCars.get(i).position.y + RADIUS);
 
         }
 
         //Bottom cars
         for (int i = 0; i < downCars.size(); i++) {
 
+            int y = startY + i * RADIUS * 2 + MARGIN;
             String id = Integer.toString((int) downCars.get(i).getId());
 
             g.setColor(Color.YELLOW);
 
-            int y = startY + i * RADIUS * 2 + MARGIN;
-            
-            g.fillOval(downLight.x, y, RADIUS * 2, RADIUS * 2);
-
+            g.fillOval(downCars.get(i).position.x, downCars.get(i).position.y, RADIUS * 2, RADIUS * 2);
             g.setColor(Color.BLACK);
-
-            g.drawString(id, downLight.x + RADIUS, y + RADIUS);
+            g.drawString(id, downCars.get(i).position.x + RADIUS, downCars.get(i).position.y + RADIUS);
 
         }
 
@@ -187,17 +181,14 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         //Right cars
         for (int i = 0; i < rightCars.size(); i++) {
 
+            int x = startX + i * RADIUS * 2 + MARGIN;
             String id = Integer.toString((int) rightCars.get(i).getId());
 
             g.setColor(Color.YELLOW);
-            
-            int x = startX + i * RADIUS * 2 + MARGIN;
 
-            g.fillOval(x, rightLight.y, RADIUS * 2, RADIUS * 2);
-
+            g.fillOval(rightCars.get(i).position.x, rightCars.get(i).position.y, RADIUS * 2, RADIUS * 2);
             g.setColor(Color.BLACK);
-
-            g.drawString(id, x, rightLight.y + RADIUS);
+            g.drawString(id, rightCars.get(i).position.x + RADIUS / 2, rightCars.get(i).position.y + RADIUS * 2);
 
         }
 
@@ -206,17 +197,14 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         //Top cars
         for (int i = 0; i < upCars.size(); i++) {
 
+            int y = startY - i * RADIUS * 2 - MARGIN;
             String id = Integer.toString((int) upCars.get(i).getId());
 
             g.setColor(Color.YELLOW);
-            
-            int y = startY - i * RADIUS * 2 - MARGIN;
 
-            g.fillOval(upLight.x, y, RADIUS * 2, RADIUS * 2);
-
+            g.fillOval(upCars.get(i).position.x, upCars.get(i).position.y, RADIUS * 2, RADIUS * 2);
             g.setColor(Color.BLACK);
-
-            g.drawString(id, upLight.x + RADIUS, y + RADIUS);
+            g.drawString(id, upCars.get(i).position.x + RADIUS, upCars.get(i).position.y + RADIUS);
 
         }
 
