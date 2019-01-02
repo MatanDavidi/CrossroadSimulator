@@ -316,6 +316,123 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
     }
 
     @Override
+    public void carPassing(Car source) {
+
+        switch (source.getLocation()) {
+
+            case Down:
+                while (source.position.y + RADIUS * 2 > getHeight() / 2) {
+
+                    source.position.y -= RADIUS / 2;
+                    repaint(source.position.x, source.position.y + RADIUS / 2, RADIUS * 2, RADIUS * 2);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                    }
+
+                }
+                break;
+
+            case Left:
+                while (source.position.x + RADIUS < getWidth() / 2) {
+
+                    source.position.x += RADIUS / 2;
+                    repaint(source.position.x - RADIUS / 2, source.position.y, RADIUS * 2, RADIUS * 2);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                    }
+
+                }
+                break;
+
+            case Right:
+                while (source.position.x + RADIUS > getWidth() / 2) {
+
+                    source.position.x -= RADIUS / 2;
+                    repaint(source.position.x + RADIUS / 2, source.position.y, RADIUS * 2, RADIUS * 2);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                    }
+
+                }
+                break;
+
+            case Up:
+                while (source.position.y + RADIUS * 2 < getHeight() / 2) {
+
+                    source.position.y += RADIUS / 2;
+                    repaint(source.position.x, source.position.y - RADIUS / 2, RADIUS * 2, RADIUS + RADIUS / 2);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                    }
+
+                }
+                break;
+
+        }
+
+        switch (source.getDirection()) {
+
+            case Down:
+                while (source.position.y < getHeight()) {
+
+                    source.position.y += RADIUS / 2;
+                    repaint(source.position.x, source.position.y - RADIUS / 2, RADIUS * 2, RADIUS * 2);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                    }
+
+                }
+                break;
+
+            case Left:
+                while (source.position.x + RADIUS * 2 > 0) {
+
+                    source.position.x -= RADIUS / 2;
+                    repaint(source.position.x + RADIUS / 2, source.position.y, RADIUS * 2, RADIUS * 2);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                    }
+
+                }
+                break;
+
+            case Right:
+                while (source.position.x < getWidth()) {
+
+                    source.position.x += RADIUS / 2;
+                    repaint(source.position.x - RADIUS / 2, source.position.y, RADIUS * 2, RADIUS * 2);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                    }
+
+                }
+                break;
+
+            case Up:
+                while (source.position.y + RADIUS * 2 > 0) {
+
+                    source.position.y -= RADIUS / 2;
+                    repaint(source.position.x, source.position.y + RADIUS / 2, RADIUS * 2, RADIUS * 2);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                    }
+
+                }
+                break;
+
+        }
+
+    }
+
+    @Override
     public void mouseClicked(MouseEvent e) {
 
         Point mousePoint = e.getPoint();
