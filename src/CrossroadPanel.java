@@ -213,58 +213,99 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
     @Override
     public void carPassed(Car source) {
 
-//        switch (source.getPosition()) {
-//
-//            case Down:
-//                repaint(downLight.x, downLight.y + RADIUS * 2, RADIUS * 6, getHeight() / 2 - RADIUS * 5);
-//                break;
-//
-//            case Left:
-//                repaint(leftLight.x - RADIUS * 2, leftLight.y, getWidth() / 2 - RADIUS * 5, RADIUS * 6);
-//                break;
-//
-//            case Right:
-//                repaint(rightLight.x + RADIUS * 2, rightLight.y, getWidth() / 2 - RADIUS * 5, RADIUS * 6);
-//                break;
-//
-//            case Up:
-//                repaint(upLight.x, upLight.y - RADIUS * 2, RADIUS * 6, getHeight() / 2 - RADIUS * 5);
-//                break;
-//
-//        }
-        repaint();
-        
         System.out.println("The car " + source + " has passed");
         System.out.println("There are now " + crossroad.getDownCars().size() + " on the bottom.");
         System.out.println("There are now " + crossroad.getLeftCars().size() + " to the left.");
         System.out.println("There are now " + crossroad.getUpCars().size() + " on the top.");
         System.out.println("There are now " + crossroad.getRightCars().size() + " to the right.");
-        
+
     }
-    
+
     @Override
     public void carAdded(Car source) {
 
-//        switch (source.getLocation()) {
-//
-//            case Down:
-//                repaint(downLight.x, downLight.y + RADIUS * 2, RADIUS * 6, getHeight() / 2 - RADIUS * 5);
-//                break;
-//
-//            case Left:
-//                repaint(leftLight.x - RADIUS * 2, leftLight.y, getWidth() / 2 - RADIUS * 5, RADIUS * 6);
-//                break;
-//
-//            case Right:
-//                repaint(rightLight.x + RADIUS * 2, rightLight.y, getWidth() / 2 - RADIUS * 5, RADIUS * 6);
-//                break;
-//
-//            case Up:
-//                repaint(upLight.x, upLight.y - RADIUS * 2, RADIUS * 6, getHeight() / 2 - RADIUS * 5);
-//                break;
-//
-//        }
-        repaint();
+        switch (source.getLocation()) {
+
+            case Down:
+                source.position.x = downLight.x + RADIUS;
+                source.position.y = getHeight();
+
+                while (source.position.y > downLight.y + RADIUS * (2 + (crossroad.getDownCars().size() - 1) * 2) + MARGIN) {
+
+                    source.position.y -= RADIUS / 2;
+                    repaint(source.position.x, source.position.y + RADIUS / 2, RADIUS * 2, RADIUS * 2 + RADIUS / 2);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                    }
+
+                }
+
+                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+                source.position.y = downLight.y + RADIUS * (2 + (crossroad.getDownCars().size() - 1) * 2) + MARGIN;
+                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+                break;
+
+            case Up:
+                source.position.x = upLight.x - RADIUS;
+                source.position.y = 0;
+
+                while (source.position.y < upLight.y - RADIUS * (2 + (crossroad.getUpCars().size() - 1) * 2) - MARGIN) {
+
+                    source.position.y += RADIUS / 2;
+                    repaint(source.position.x, source.position.y - RADIUS / 2, RADIUS * 2, RADIUS * 2 + RADIUS / 2);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                    }
+
+                }
+
+                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+                source.position.y = upLight.y - RADIUS * (2 + (crossroad.getUpCars().size() - 1) * 2) - MARGIN;
+                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+                break;
+
+            case Left:
+                source.position.x = 0;
+                source.position.y = leftLight.y - RADIUS;
+
+                while (source.position.x < leftLight.x - RADIUS * (2 + (crossroad.getLeftCars().size() - 1) * 2) - MARGIN) {
+
+                    source.position.x += RADIUS / 2;
+                    repaint(source.position.x - RADIUS / 2, source.position.y, RADIUS * 2 + RADIUS / 2, RADIUS * 2);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                    }
+
+                }
+                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+                source.position.x = leftLight.x - RADIUS * (2 + (crossroad.getLeftCars().size() - 1) * 2) - MARGIN;
+                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+                break;
+
+            case Right:
+                source.position.x = getWidth();
+                source.position.y = rightLight.y + RADIUS;
+
+                while (source.position.x > rightLight.x + RADIUS * (2 + (crossroad.getRightCars().size() - 1) * 2) - MARGIN) {
+
+                    source.position.x -= RADIUS / 2;
+                    repaint(source.position.x + RADIUS / 2, source.position.y, RADIUS * 2 + RADIUS / 2, RADIUS * 2);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                    }
+
+                }
+
+                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+                source.position.x = rightLight.x + RADIUS * (2 + (crossroad.getRightCars().size() - 1) * 2) + MARGIN;
+                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+                break;
+
+        }
 
         System.out.println("The car " + source + " just arrived at the crossroad");
         System.out.println("There are now " + crossroad.getDownCars().size() + " on the bottom.");
