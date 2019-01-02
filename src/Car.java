@@ -57,26 +57,8 @@ public class Car extends Thread {
 
     }
 
-    public void setCarToWait(Car carToWait) {
-
-        this.carToWait = carToWait;
-
-    }
-
     @Override
     public void run() {
-
-        if (carToWait != null) {
-
-            try {
-
-                carToWait.join();
-                sleep(250);
-
-            } catch (InterruptedException ex) {
-            }
-
-        }
 
         boolean hasPassed = false;
 
