@@ -86,7 +86,7 @@ public class TrafficLight {
      *
      * @return the value of the field upLit
      */
-    public boolean getUpLit() {
+    public synchronized boolean getUpLit() {
 
         return upLit;
 
@@ -97,7 +97,7 @@ public class TrafficLight {
      *
      * @return the value of the field downLit
      */
-    public boolean getDownLit() {
+    public synchronized boolean getDownLit() {
 
         return downLit;
 
@@ -108,7 +108,7 @@ public class TrafficLight {
      *
      * @return the value of the field leftLit
      */
-    public boolean getLeftLit() {
+    public synchronized boolean getLeftLit() {
 
         return leftLit;
 
@@ -119,7 +119,7 @@ public class TrafficLight {
      *
      * @return the value of the field rightLit
      */
-    public boolean getRightLit() {
+    public synchronized boolean getRightLit() {
 
         return rightLit;
 
