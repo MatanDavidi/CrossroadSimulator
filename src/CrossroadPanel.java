@@ -278,130 +278,134 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 //
 //        }
         repaint();
-        
+
         System.out.println("The car " + source + " just arrived at the crossroad");
         System.out.println("There are now " + crossroad.getDownCars().size() + " on the bottom.");
         System.out.println("There are now " + crossroad.getLeftCars().size() + " to the left.");
         System.out.println("There are now " + crossroad.getUpCars().size() + " on the top.");
         System.out.println("There are now " + crossroad.getRightCars().size() + " to the right.");
-        
+
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
-        
+
         Point mousePoint = e.getPoint();
-        
+
         Point upLight = new Point(this.upLight);
         upLight.x += RADIUS;
         upLight.y += RADIUS;
-        
+
         Point rightLight = new Point(this.rightLight);
         rightLight.x += RADIUS;
         rightLight.y += RADIUS;
-        
+
         Point downLight = new Point(this.downLight);
         downLight.x += RADIUS;
         downLight.y += RADIUS;
-        
+
         Point leftLight = new Point(this.leftLight);
         leftLight.x += RADIUS;
         leftLight.y += RADIUS;
-        
+
         if (mousePoint.distance(upLight) <= RADIUS) {
-            
+
             upLightClicked(e);
-            
+
         } else if (mousePoint.distance(rightLight) <= RADIUS) {
-            
+
             rightLightClicked(e);
-            
+
         } else if (mousePoint.distance(downLight) <= RADIUS) {
-            
+
             downLightClicked(e);
-            
+
         } else if (mousePoint.distance(leftLight) <= RADIUS) {
-            
+
             leftLightClicked(e);
-            
+
         }
-        
+
     }
-    
+
     @Override
     public void mousePressed(MouseEvent e) {
-        
+
     }
-    
+
     @Override
     public void mouseReleased(MouseEvent e) {
-        
+
     }
-    
+
     @Override
     public void mouseEntered(MouseEvent e) {
-        
+
     }
-    
+
     @Override
     public void mouseExited(MouseEvent e) {
-        
+
     }
-    
+
     private void upLightClicked(MouseEvent e) {
-        
+
         TrafficLight tl = crossroad.getTrafficLight();
         crossroad.getTrafficLight().setUpLit(!tl.getUpLit());
-        repaint(upLight.x, upLight.y, RADIUS * 2, RADIUS * 2);
-        
+
         for (Car upCar : crossroad.getUpCars()) {
-            
+
             upCar.updateTrafficLight(tl);
-            
+
         }
-        
+
+        repaint(upLight.x, upLight.y, RADIUS * 2, RADIUS * 2);
+
     }
-    
+
     private void rightLightClicked(MouseEvent e) {
-        
+
         TrafficLight tl = crossroad.getTrafficLight();
         crossroad.getTrafficLight().setRightLit(!tl.getRightLit());
-        repaint(rightLight.x, rightLight.y, RADIUS * 2, RADIUS * 2);
-        
+
         for (Car rightCar : crossroad.getRightCars()) {
-            
+
             rightCar.updateTrafficLight(tl);
-            
+
         }
-        
+
+        repaint(rightLight.x, rightLight.y, RADIUS * 2, RADIUS * 2);
+
     }
-    
+
     private void downLightClicked(MouseEvent e) {
-        
+
         TrafficLight tl = crossroad.getTrafficLight();
         crossroad.getTrafficLight().setDownLit(!tl.getDownLit());
-        repaint(downLight.x, downLight.y, RADIUS * 2, RADIUS * 2);
-        
+
         for (Car downCar : crossroad.getDownCars()) {
-            
+
             downCar.updateTrafficLight(tl);
-            
+
         }
-        
+
+        repaint(downLight.x, downLight.y, RADIUS * 2, RADIUS * 2);
+
     }
-    
+
     private void leftLightClicked(MouseEvent e) {
-        
+
         TrafficLight tl = crossroad.getTrafficLight();
         crossroad.getTrafficLight().setLeftLit(!tl.getLeftLit());
-        repaint(leftLight.x, leftLight.y, RADIUS * 2, RADIUS * 2);
-        
+
         for (Car leftCar : crossroad.getLeftCars()) {
-            
+
             leftCar.updateTrafficLight(tl);
-            
+
         }
-        
+
+        repaint(leftLight.x, leftLight.y, RADIUS * 2, RADIUS * 2);
+
     }
-    
+
 }
