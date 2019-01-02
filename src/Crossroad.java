@@ -40,9 +40,9 @@ public class Crossroad {
 
     private List<CrossroadListener> listeners;
 
-    private Object lock1;
+    private final Object lock1;
 
-    private Object lock2;
+    private final Object lock2;
 
     public Crossroad() {
 
