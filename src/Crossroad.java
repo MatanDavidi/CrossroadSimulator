@@ -112,7 +112,7 @@ public class Crossroad {
 
         synchronized (lock1) {
 
-            switch (car.getPosition()) {
+            switch (car.getLocation()) {
 
                 case Down:
                     re = downCars.add(car);
@@ -153,7 +153,7 @@ public class Crossroad {
 
         synchronized (lock2) {
 
-            switch (car.getPosition()) {
+            switch (car.getLocation()) {
 
                 case Down:
                     re = downCars.remove(car);
