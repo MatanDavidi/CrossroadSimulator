@@ -42,8 +42,12 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
     private Point rightLight;
 
     private Point downLight;
+    
+    private final int MARGIN;
 
     public CrossroadPanel() {
+        
+        MARGIN = 5;
 
         crossroad = new Crossroad();
         RADIUS = 10;
