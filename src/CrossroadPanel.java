@@ -141,7 +141,6 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
     
     private void paintCars(Graphics g) {
         
-        crossroad.addCrossroadListener(this);
         
         List<Car> leftCars = crossroad.getLeftCars();
         List<Car> downCars = crossroad.getDownCars();
