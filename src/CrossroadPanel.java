@@ -236,55 +236,56 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 //
 //        }
         repaint();
-
+        
         System.out.println("The car " + source + " has passed");
         System.out.println("There are now " + crossroad.getDownCars().size() + " on the bottom.");
         System.out.println("There are now " + crossroad.getLeftCars().size() + " to the left.");
         System.out.println("There are now " + crossroad.getUpCars().size() + " on the top.");
         System.out.println("There are now " + crossroad.getRightCars().size() + " to the right.");
-
+        
     }
-
+    
     @Override
     public void carAdded(Car source) {
 
-        switch (source.getPosition()) {
-
-            case Down:
-                repaint(downLight.x, downLight.y + RADIUS * 2, RADIUS * 6, getHeight() / 2 - RADIUS * 5);
-                break;
-
-            case Left:
-                repaint(leftLight.x - RADIUS * 2, leftLight.y, getWidth() / 2 - RADIUS * 5, RADIUS * 6);
-                break;
-
-            case Right:
-                repaint(rightLight.x + RADIUS * 2, rightLight.y, getWidth() / 2 - RADIUS * 5, RADIUS * 6);
-                break;
-
-            case Up:
-                repaint(upLight.x, upLight.y - RADIUS * 2, RADIUS * 6, getHeight() / 2 - RADIUS * 5);
-                break;
-
-        }
-
+//        switch (source.getLocation()) {
+//
+//            case Down:
+//                repaint(downLight.x, downLight.y + RADIUS * 2, RADIUS * 6, getHeight() / 2 - RADIUS * 5);
+//                break;
+//
+//            case Left:
+//                repaint(leftLight.x - RADIUS * 2, leftLight.y, getWidth() / 2 - RADIUS * 5, RADIUS * 6);
+//                break;
+//
+//            case Right:
+//                repaint(rightLight.x + RADIUS * 2, rightLight.y, getWidth() / 2 - RADIUS * 5, RADIUS * 6);
+//                break;
+//
+//            case Up:
+//                repaint(upLight.x, upLight.y - RADIUS * 2, RADIUS * 6, getHeight() / 2 - RADIUS * 5);
+//                break;
+//
+//        }
+        repaint();
+        
         System.out.println("The car " + source + " just arrived at the crossroad");
         System.out.println("There are now " + crossroad.getDownCars().size() + " on the bottom.");
         System.out.println("There are now " + crossroad.getLeftCars().size() + " to the left.");
         System.out.println("There are now " + crossroad.getUpCars().size() + " on the top.");
-        System.out.println("There are now " + crossroad.getRightCars().size() + " to the right the top.");
-
+        System.out.println("There are now " + crossroad.getRightCars().size() + " to the right.");
+        
     }
-
+    
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        
         Point mousePoint = e.getPoint();
-
+        
         Point upLight = new Point(this.upLight);
         upLight.x += RADIUS;
         upLight.y += RADIUS;
-
+        
         Point rightLight = new Point(this.rightLight);
         rightLight.x += RADIUS;
         rightLight.y += RADIUS;
