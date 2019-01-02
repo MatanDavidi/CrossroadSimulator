@@ -155,6 +155,13 @@ public class Crossroad {
 
     public boolean passCar(Car car) {
 
+        for (int i = 0; i < listeners.size(); ++i) {
+
+            CrossroadListener listener = listeners.get(i);
+            listener.carPassing(car);
+
+        }
+
         boolean re;
 
         synchronized (lock2) {
