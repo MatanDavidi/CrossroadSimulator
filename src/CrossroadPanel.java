@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Iterator;
 import java.util.List;
 import javax.swing.JPanel;
 
@@ -351,8 +352,9 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         TrafficLight tl = crossroad.getTrafficLight();
         crossroad.getTrafficLight().setUpLit(!tl.getUpLit());
 
-        for (Car upCar : crossroad.getUpCars()) {
+        for (Iterator<Car> it = crossroad.getUpCars().iterator(); it.hasNext();) {
 
+            Car upCar = it.next();
             upCar.updateTrafficLight(tl);
 
         }
@@ -366,8 +368,9 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         TrafficLight tl = crossroad.getTrafficLight();
         crossroad.getTrafficLight().setRightLit(!tl.getRightLit());
 
-        for (Car rightCar : crossroad.getRightCars()) {
+        for (Iterator<Car> it = crossroad.getRightCars().iterator(); it.hasNext();) {
 
+            Car rightCar = it.next();
             rightCar.updateTrafficLight(tl);
 
         }
@@ -381,8 +384,9 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         TrafficLight tl = crossroad.getTrafficLight();
         crossroad.getTrafficLight().setDownLit(!tl.getDownLit());
 
-        for (Car downCar : crossroad.getDownCars()) {
+        for (Iterator<Car> it = crossroad.getDownCars().iterator(); it.hasNext();) {
 
+            Car downCar = it.next();
             downCar.updateTrafficLight(tl);
 
         }
@@ -396,8 +400,9 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         TrafficLight tl = crossroad.getTrafficLight();
         crossroad.getTrafficLight().setLeftLit(!tl.getLeftLit());
 
-        for (Car leftCar : crossroad.getLeftCars()) {
+        for (Iterator<Car> it = crossroad.getLeftCars().iterator(); it.hasNext();) {
 
+            Car leftCar = it.next();
             leftCar.updateTrafficLight(tl);
 
         }
