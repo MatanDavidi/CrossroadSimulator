@@ -100,6 +100,12 @@ public class Crossroad {
 
     }
 
+    public void setTrafficLight(TrafficLight trafficLight) {
+        
+        this.trafficLight = trafficLight;
+        
+    }
+
     public void addCrossroadListener(CrossroadListener listener) {
 
         listeners.add(listener);
