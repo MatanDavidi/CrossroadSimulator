@@ -26,14 +26,16 @@ import java.awt.Point;
  *
  */
 public class Car extends Thread {
-    
+
     public Point position;
-    
+
     private Position location;
 
     private Position direction;
 
     private Crossroad crossroad;
+
+    private Car carToWait;
 
     public Car(Position location, Position direction, Crossroad crossroad) {
 
@@ -56,11 +58,28 @@ public class Car extends Thread {
 
     }
 
+    public void setCarToWait(Car carToWait) {
+
+        this.carToWait = carToWait;
+
+    }
+
     @Override
     public void run() {
 
+        if (carToWait != null) {
+
+            try {
+
+                carToWait.join();
+
+            } catch (InterruptedException ex) {
+            }
+
+        }
+
         boolean hasPassed = false;
-        
+
         while (!hasPassed) {
 
             TrafficLight lights = crossroad.getTrafficLight();
