@@ -127,47 +127,50 @@ public class TrafficLight {
 
     /**
      * Sets the value of the field downLit
+     *
      * @param downLit the value to set to the field downLit
      */
     public void setDownLit(boolean downLit) {
-        
+
         this.downLit = downLit;
-        System.out.println("Turning " + (downLit? "on": "off") + " down");
-        
+        System.out.println("Turning " + (downLit ? "on" : "off") + " down");
+
     }
 
     /**
      * Sets the value of the field leftLit
+     *
      * @param leftLit the value to set to the field leftLit
      */
     public void setLeftLit(boolean leftLit) {
-        
+
         this.leftLit = leftLit;
-        System.out.println("Turning " + (leftLit? "on": "off") + " left");
-        
+        System.out.println("Turning " + (leftLit ? "on" : "off") + " left");
+
     }
 
     /**
      * Sets the value of the field rightLit
+     *
      * @param rightLit the value to set to the field rightLit
      */
     public void setRightLit(boolean rightLit) {
-        
+
         this.rightLit = rightLit;
-        System.out.println("Turning " + (rightLit? "on": "off") + " right");
-        
+        System.out.println("Turning " + (rightLit ? "on" : "off") + " right");
+
     }
-    
+
     /**
      * Sets the value of the field upLit
+     *
      * @param upLit the value to set to the field upLit
      */
     public void setUpLit(boolean upLit) {
-        
+
         this.upLit = upLit;
-        System.out.println("Turning " + (upLit? "on": "off") + " up");
-        
+        System.out.println("Turning " + (upLit ? "on" : "off") + " up");
+
     }
-    
 
 }
