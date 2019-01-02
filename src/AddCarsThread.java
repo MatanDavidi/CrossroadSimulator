@@ -1,4 +1,5 @@
 
+import java.awt.Point;
 
 /*
  * Copyright (C) 2018 Matan Davidi
@@ -56,17 +57,19 @@ public class AddCarsThread extends Thread {
             } catch (InterruptedException ex) {
             }
 
-            Position currentPosition;
+            Position currentLocation;
             Position direction;
 
             do {
 
-                currentPosition = PositionClass.getRandomPosition();
+                currentLocation = PositionClass.getRandomPosition();
                 direction = PositionClass.getRandomPosition();
 
-            } while (currentPosition == direction);
+            } while (currentLocation == direction);
 
-            crossroad.addCar(new Car(currentPosition, direction, crossroad));
+            Point newPosition = new Point();
+
+            crossroad.addCar(new Car(newPosition, currentLocation, direction, crossroad));
 
         }
 
