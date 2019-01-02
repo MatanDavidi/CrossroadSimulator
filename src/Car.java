@@ -1,3 +1,6 @@
+
+import java.awt.Point;
+
 /*
  * Copyright (C) 2018 Matan Davidi
  *
@@ -23,25 +26,27 @@
  *
  */
 public class Car extends Thread {
-
-    private Position position;
+    
+    public Point position;
+    
+    private Position location;
 
     private Position direction;
 
     private Crossroad crossroad;
 
-    public Car(Position position, Position direction, Crossroad crossroad) {
+    public Car(Position location, Position direction, Crossroad crossroad) {
 
         super();
-        this.position = position;
+        this.location = location;
         this.direction = direction;
         this.crossroad = crossroad;
 
     }
 
-    public Position getPosition() {
+    public Position getLocation() {
 
-        return position;
+        return location;
 
     }
 
@@ -62,7 +67,7 @@ public class Car extends Thread {
 
             boolean canPass;
 
-            switch (position) {
+            switch (location) {
 
                 case Down:
                     canPass = !(lights.getDownLit());
