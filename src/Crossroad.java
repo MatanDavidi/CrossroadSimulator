@@ -122,18 +122,46 @@ public class Crossroad {
 
                 case Down:
                     re = downCars.add(car);
+
+                    if (downCars.indexOf(car) > 0) {
+
+                        car.setCarToWait(downCars.get(downCars.indexOf(car) - 1));
+
+                    }
+
                     break;
 
                 case Left:
                     re = leftCars.add(car);
+
+                    if (leftCars.indexOf(car) > 0) {
+
+                        car.setCarToWait(leftCars.get(leftCars.indexOf(car) - 1));
+
+                    }
+
                     break;
 
                 case Right:
                     re = rightCars.add(car);
+
+                    if (rightCars.indexOf(car) > 0) {
+
+                        car.setCarToWait(rightCars.get(rightCars.indexOf(car) - 1));
+
+                    }
+
                     break;
 
                 default:
                     re = upCars.add(car);
+
+                    if (upCars.indexOf(car) > 0) {
+
+                        car.setCarToWait(upCars.get(upCars.indexOf(car) - 1));
+
+                    }
+
                     break;
 
             }
