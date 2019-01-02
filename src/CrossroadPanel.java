@@ -62,8 +62,6 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
         super.paintComponent(g);
 
-        g.clearRect(0, 0, getWidth(), getHeight());
-
         updateLightPositions();
 
         //Lights
