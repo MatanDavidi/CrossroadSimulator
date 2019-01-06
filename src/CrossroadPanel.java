@@ -589,6 +589,12 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    private void repaintCar(Car source) {
+
+        repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
 
