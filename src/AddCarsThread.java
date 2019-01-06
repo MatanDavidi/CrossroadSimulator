@@ -18,6 +18,8 @@ import java.awt.Point;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
+ * The class AddCarsThread is a subclass of Thread and is tasked with the
+ * addition of cars to a crossroad at random intervals
  *
  * @author Matan Davidi
  * @version 29-dic-2018
