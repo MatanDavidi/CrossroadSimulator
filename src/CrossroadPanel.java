@@ -357,8 +357,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
-    @Override
-    public void carPassing(Car source) {
+    public void animatePassingCar(Car source) {
 
         switch (source.getLocation()) {
 
