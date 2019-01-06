@@ -38,12 +38,14 @@ public class Car extends Thread {
 
     private boolean hasPassed;
 
+    public boolean isAtLight;
+
     public Car(Point position, Position location, Position direction, Crossroad crossroad) {
 
         super();
         this.position = position;
-        this.location = location;
-        this.direction = direction;
+        setLocation(location);
+        setDirection(direction);
         this.crossroad = crossroad;
 
     }
@@ -69,6 +71,26 @@ public class Car extends Thread {
     public boolean getCanPass() {
 
         return canPass;
+
+    }
+
+    private void setLocation(Position location) {
+
+        if (location != direction) {
+
+            this.location = location;
+
+        }
+
+    }
+
+    private void setDirection(Position direction) {
+
+        if (direction != location) {
+
+            this.direction = direction;
+
+        }
 
     }
 
