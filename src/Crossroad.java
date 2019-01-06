@@ -148,7 +148,7 @@ public class Crossroad {
 
             }
 
-            car.start();
+            ++carsNumber;
 
             for (int i = 0; i < listeners.size(); i++) {
 
