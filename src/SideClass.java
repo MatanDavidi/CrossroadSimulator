@@ -16,12 +16,18 @@
  */
 
 /**
+ * The class SideClass contains useful methods for the enumeration Side
  *
  * @author Matan Davidi
+ * @version 29-dec-2018
  */
 public class SideClass {
 
-    public static Side getRandomPosition() {
+    /**
+     * Chooses one of the four sides of a crossroad
+     * @return a side chosen randomly between Up, Down, Left and Right
+     */
+    public static Side getRandomSide() {
 
         Side re;
 

@@ -87,8 +87,8 @@ public class AddCarsThread extends Thread {
 
             do {
 
-                currentLocation = SideClass.getRandomPosition();
-                direction = SideClass.getRandomPosition();
+                currentLocation = SideClass.getRandomSide();
+                direction = SideClass.getRandomSide();
 
             } while (currentLocation == direction);
 
