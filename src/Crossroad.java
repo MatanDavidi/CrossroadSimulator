@@ -165,6 +165,8 @@ public class Crossroad {
 
     public boolean passCar(Car car) {
 
+        boolean re = false;
+
         for (int i = 0; i < listeners.size(); ++i) {
 
             CrossroadListener listener = listeners.get(i);
@@ -172,34 +174,36 @@ public class Crossroad {
 
         }
 
-        boolean re;
+        if (car.getCanPass()) {
 
-        synchronized (lock2) {
+            synchronized (lock2) {
 
-            switch (car.getLocation()) {
+                switch (car.getLocation()) {
 
-                case Down:
-                    re = downCars.remove(car);
-                    break;
+                    case Down:
+                        re = downCars.remove(car);
+                        break;
 
-                case Left:
-                    re = leftCars.remove(car);
-                    break;
+                    case Left:
+                        re = leftCars.remove(car);
+                        break;
 
-                case Right:
-                    re = rightCars.remove(car);
-                    break;
+                    case Right:
+                        re = rightCars.remove(car);
+                        break;
 
-                default:
-                    re = upCars.remove(car);
-                    break;
+                    default:
+                        re = upCars.remove(car);
+                        break;
 
-            }
+                }
 
-            for (int i = 0; i < listeners.size(); i++) {
+                for (int i = 0; i < listeners.size(); i++) {
 
-                CrossroadListener listener = listeners.get(i);
-                listener.carPassed(car);
+                    CrossroadListener listener = listeners.get(i);
+                    listener.carPassed(car);
+
+                }
 
             }
 
