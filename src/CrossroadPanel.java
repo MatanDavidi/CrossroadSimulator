@@ -46,7 +46,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     private final int MARGIN;
 
-    public final int FRAMES_TIMEOUT;
+    public final long FRAMES_TIMEOUT;
 
     public CrossroadPanel() {
 
