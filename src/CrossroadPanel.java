@@ -151,59 +151,50 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         List<Car> upCars = crossroad.getUpCars();
         List<Car> rightCars = crossroad.getRightCars();
 
-        int startX = leftLight.x - RADIUS * 2;
-        int startY = downLight.y + RADIUS * 2;
-
         //Left cars
         for (int i = 0; i < leftCars.size(); i++) {
 
-            int x = startX - i * RADIUS * 2 - MARGIN;
-            String id = Integer.toString((int) leftCars.get(i).getId());
+            Car car = leftCars.get(i);
+            String id = getIdString(car);
 
             g.setColor(Color.YELLOW);
-
-            g.fillOval(leftCars.get(i).position.x, leftCars.get(i).position.y, RADIUS * 2, RADIUS * 2);
+            g.fillOval(car.position.x, car.position.y, RADIUS * 2, RADIUS * 2);
             g.setColor(Color.BLACK);
-            g.drawString(id, leftCars.get(i).position.x + RADIUS, leftCars.get(i).position.y + RADIUS);
+            g.drawString(id, car.position.x + RADIUS / 2, car.position.y + RADIUS);
 
         }
 
         //Bottom cars
         for (int i = 0; i < downCars.size(); i++) {
 
-            int y = startY + i * RADIUS * 2 + MARGIN;
-            String id = Integer.toString((int) downCars.get(i).getId());
+            Car car = downCars.get(i);
+            String id = getIdString(car);
 
             g.setColor(Color.YELLOW);
 
-            g.fillOval(downCars.get(i).position.x, downCars.get(i).position.y, RADIUS * 2, RADIUS * 2);
+            g.fillOval(car.position.x, car.position.y, RADIUS * 2, RADIUS * 2);
             g.setColor(Color.BLACK);
-            g.drawString(id, downCars.get(i).position.x + RADIUS, downCars.get(i).position.y + RADIUS);
+            g.drawString(id, car.position.x + RADIUS / 2, car.position.y + RADIUS);
 
         }
-
-        startX = rightLight.x + RADIUS * 2;
 
         //Right cars
         for (int i = 0; i < rightCars.size(); i++) {
 
-            int x = startX + i * RADIUS * 2 + MARGIN;
-            String id = Integer.toString((int) rightCars.get(i).getId());
+            Car car = rightCars.get(i);
+            String id = getIdString(car);
 
             g.setColor(Color.YELLOW);
 
-            g.fillOval(rightCars.get(i).position.x, rightCars.get(i).position.y, RADIUS * 2, RADIUS * 2);
+            g.fillOval(car.position.x, car.position.y, RADIUS * 2, RADIUS * 2);
             g.setColor(Color.BLACK);
-            g.drawString(id, rightCars.get(i).position.x + RADIUS / 2, rightCars.get(i).position.y + RADIUS * 2);
+            g.drawString(id, car.position.x + RADIUS / 2, car.position.y + RADIUS);
 
         }
-
-        startY = upLight.y - RADIUS * 2;
 
         //Top cars
         for (int i = 0; i < upCars.size(); i++) {
 
-            int y = startY - i * RADIUS * 2 - MARGIN;
             Car car = upCars.get(i);
             String id = getIdString(car);
 
