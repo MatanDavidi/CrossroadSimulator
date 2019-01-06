@@ -16,8 +16,11 @@
  */
 
 /**
+ * The main class of the project, CrossroadSimulatorForm is a JFrame that
+ * contains an instance of CrossroadPanel
  *
  * @author Matan Davidi
+ * @version 31-dec-2018
  */
 public class CrossroadSimulatorForm extends javax.swing.JFrame {
 
