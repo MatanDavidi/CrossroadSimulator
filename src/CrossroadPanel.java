@@ -349,12 +349,6 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
         }
 
-        System.out.println("The car " + source + " just arrived at the crossroad");
-        System.out.println("There are now " + crossroad.getDownCars().size() + " on the bottom.");
-        System.out.println("There are now " + crossroad.getLeftCars().size() + " to the left.");
-        System.out.println("There are now " + crossroad.getUpCars().size() + " on the top.");
-        System.out.println("There are now " + crossroad.getRightCars().size() + " to the right.");
-
     }
 
     public void animatePassingCar(Car source) {
