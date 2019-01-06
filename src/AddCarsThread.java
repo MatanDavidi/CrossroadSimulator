@@ -25,18 +25,41 @@ import java.awt.Point;
  */
 public class AddCarsThread extends Thread {
 
+    /**
+     * The crossroad in which to add the cars
+     */
     private Crossroad crossroad;
 
+    /**
+     * The minimum time to wait before adding a car
+     */
     private final long minInterval;
 
+    /**
+     * The maximum time to wait before adding a car
+     */
     private final long maxInterval;
 
+    /**
+     * Instances new objects of type AddCarsThread with a default values
+     * assigned to the fields minInterval and maxInterval
+     *
+     * @param crossroad the crossroad in which to add the cars
+     */
     public AddCarsThread(Crossroad crossroad) {
 
         this(crossroad, 1000, 10000);
 
     }
 
+    /**
+     * Instances new objects of type AddCarsThread allowing to specify a value
+     * to set to the fields crossroad, minInterval and maxInterval
+     *
+     * @param crossroad the crossroad in which to add the cars
+     * @param minInterval the minimum time to wait before adding a car
+     * @param maxInterval the maximum time to wait before adding a car
+     */
     public AddCarsThread(Crossroad crossroad, long minInterval, long maxInterval) {
 
         this.crossroad = crossroad;
