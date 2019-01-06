@@ -16,14 +16,31 @@
  */
 
 /**
+ * Sides of the crossroad
  *
  * @author Matan Davidi
+ * @version 29-dec-2018
  */
 public enum Side {
 
+    /**
+     * The top side of the crossroad
+     */
     Up,
+    
+    /**
+     * The bottom side of the crossroad
+     */
     Down,
+    
+    /**
+     * The left side of the crossroad
+     */
     Left,
+    
+    /**
+     * The right side of the crossroad
+     */
     Right;
 
     @Override
