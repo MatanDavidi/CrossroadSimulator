@@ -45,7 +45,7 @@ public class Crossroad {
     private final Object lock2;
 
     private int addedCarsNumber;
-    
+
     private int passedCarsNumber;
 
     public Crossroad() {
@@ -113,9 +113,9 @@ public class Crossroad {
     }
 
     public int getPassedCarsNumber() {
-        
+
         return passedCarsNumber;
-        
+
     }
 
     public void setTrafficLight(TrafficLight trafficLight) {
@@ -205,7 +205,7 @@ public class Crossroad {
                         break;
 
                 }
-                
+
                 ++passedCarsNumber;
 
                 for (int i = 0; i < listeners.size(); i++) {
