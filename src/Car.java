@@ -34,6 +34,10 @@ public class Car extends Thread {
 
     private Crossroad crossroad;
 
+    private boolean canPass;
+
+    private boolean hasPassed;
+
     public Car(Point position, Position location, Position direction, Crossroad crossroad) {
 
         super();
@@ -56,17 +60,44 @@ public class Car extends Thread {
 
     }
 
+    public boolean getHasPassed() {
+
+        return hasPassed;
+
+    }
+
+    public boolean getCanPass() {
+
+        return canPass;
+
+    }
+
+    public void setCanPass(boolean canPass) {
+
+        if (canPass != this.canPass) {
+
+            this.canPass = canPass;
+
+        }
+
+    }
+
+    public void setHasPassed(boolean hasPassed) {
+
+        if (hasPassed != this.hasPassed) {
+
+            this.hasPassed = hasPassed;
+
+        }
+
+    }
+
     @Override
     public void run() {
-
-        boolean hasPassed = false;
 
         while (!hasPassed) {
 
             TrafficLight lights = crossroad.getTrafficLight();
-
-            boolean canPass;
-
             switch (location) {
 
                 case Down:
@@ -90,7 +121,6 @@ public class Car extends Thread {
             if (canPass) {
 
                 crossroad.passCar(this);
-                hasPassed = true;
 
             }
 
