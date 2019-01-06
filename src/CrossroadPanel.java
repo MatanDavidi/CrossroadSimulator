@@ -283,9 +283,13 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
                 }
 
-                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
-                source.position.y = downLight.y + RADIUS * (2 + (crossroad.getDownCars().size() - 1) * 2) + MARGIN;
-                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+                if (trafficLight.getDownLit()) {
+
+                    repaintCar(source);
+                    source.position.y = downLight.y + RADIUS * (2 + (crossroad.getDownCars().size() - 1) * 2) + MARGIN;
+                    repaintCar(source);
+
+                }
                 break;
 
             case Up:
@@ -298,9 +302,13 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
                 }
 
-                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
-                source.position.y = upLight.y - RADIUS * (2 + (crossroad.getUpCars().size() - 1) * 2) - MARGIN;
-                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+                if (trafficLight.getUpLit()) {
+
+                    repaintCar(source);
+                    source.position.y = upLight.y - RADIUS * (2 + (crossroad.getUpCars().size() - 1) * 2) - MARGIN;
+                    repaintCar(source);
+
+                }
                 break;
 
             case Left:
@@ -312,9 +320,13 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
                     animateCarMovingRight(source);
 
                 }
-                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
-                source.position.x = leftLight.x - RADIUS * (2 + (crossroad.getLeftCars().size() - 1) * 2) - MARGIN;
-                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+                if (trafficLight.getLeftLit()) {
+
+                    repaintCar(source);
+                    source.position.x = leftLight.x - RADIUS * (2 + (crossroad.getLeftCars().size() - 1) * 2) - MARGIN;
+                    repaintCar(source);
+
+                }
                 break;
 
             case Right:
@@ -326,10 +338,13 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
                     animateCarMovingLeft(source);
 
                 }
+                if (trafficLight.getRightLit()) {
 
-                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
-                source.position.x = rightLight.x + RADIUS * (2 + (crossroad.getRightCars().size() - 1) * 2) + MARGIN;
-                repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
+                    repaintCar(source);
+                    source.position.x = rightLight.x + RADIUS * (2 + (crossroad.getRightCars().size() - 1) * 2) + MARGIN;
+                    repaintCar(source);
+
+                }
                 break;
 
         }
