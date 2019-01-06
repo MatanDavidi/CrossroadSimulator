@@ -600,35 +600,35 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
         Point mousePoint = e.getPoint();
 
-        Point upLight = new Point(this.upLight);
-        upLight.x += RADIUS;
-        upLight.y += RADIUS;
+        Point upCenter = new Point(this.upLight);
+        upCenter.x += RADIUS;
+        upCenter.y += RADIUS;
 
-        Point rightLight = new Point(this.rightLight);
-        rightLight.x += RADIUS;
-        rightLight.y += RADIUS;
+        Point rightCenter = new Point(this.rightLight);
+        rightCenter.x += RADIUS;
+        rightCenter.y += RADIUS;
 
-        Point downLight = new Point(this.downLight);
-        downLight.x += RADIUS;
-        downLight.y += RADIUS;
+        Point downCenter = new Point(this.downLight);
+        downCenter.x += RADIUS;
+        downCenter.y += RADIUS;
 
-        Point leftLight = new Point(this.leftLight);
-        leftLight.x += RADIUS;
-        leftLight.y += RADIUS;
+        Point leftCenter = new Point(this.leftLight);
+        leftCenter.x += RADIUS;
+        leftCenter.y += RADIUS;
 
-        if (mousePoint.distance(upLight) <= RADIUS) {
+        if (mousePoint.distance(upCenter) <= RADIUS) {
 
             upLightClicked(e);
 
-        } else if (mousePoint.distance(rightLight) <= RADIUS) {
+        } else if (mousePoint.distance(rightCenter) <= RADIUS) {
 
             rightLightClicked(e);
 
-        } else if (mousePoint.distance(downLight) <= RADIUS) {
+        } else if (mousePoint.distance(downCenter) <= RADIUS) {
 
             downLightClicked(e);
 
-        } else if (mousePoint.distance(leftLight) <= RADIUS) {
+        } else if (mousePoint.distance(leftCenter) <= RADIUS) {
 
             leftLightClicked(e);
 
