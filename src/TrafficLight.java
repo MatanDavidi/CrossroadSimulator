@@ -27,28 +27,28 @@
 public class TrafficLight {
 
     /**
-     * Simulation of the upper light. If the value is set to true the light is
+     * A simulation of the top light. If the value is set to true the light is
      * on and the cars stop; if the value is set to false the light is off and
      * the cars go
      */
     private boolean upLit;
 
     /**
-     * Simulation of the lower light. If the value is set to true the light is
-     * on and the cars stop; if the value is set to false the light is off and
-     * the cars go
+     * A simulation of the bottom light. If the value is set to true the light
+     * is on and the cars stop; if the value is set to false the light is off
+     * and the cars go
      */
     private boolean downLit;
 
     /**
-     * Simulation of the left light. If the value is set to true the light is on
-     * and the cars stop; if the value is set to false the light is off and the
-     * cars go
+     * A simulation of the left light. If the value is set to true the light is
+     * on and the cars stop; if the value is set to false the light is off and
+     * the cars go
      */
     private boolean leftLit;
 
     /**
-     * Simulation of the right light. If the value is set to true the light is
+     * A simulation of the right light. If the value is set to true the light is
      * on and the cars stop; if the value is set to false the light is off and
      * the cars go
      */
@@ -84,7 +84,9 @@ public class TrafficLight {
     /**
      * Returns the value of the field upLit
      *
-     * @return the value of the field upLit
+     * @return a simulation of the top light. If the value is set to true the
+     * light is on and the cars stop; if the value is set to false the light is
+     * off and the cars go
      */
     public synchronized boolean getUpLit() {
 
@@ -95,7 +97,9 @@ public class TrafficLight {
     /**
      * Returns the value of the field downLit
      *
-     * @return the value of the field downLit
+     * @return a simulation of the bottom light. If the value is set to true the
+     * light is on and the cars stop; if the value is set to false the light is
+     * off and the cars go
      */
     public synchronized boolean getDownLit() {
 
@@ -106,7 +110,9 @@ public class TrafficLight {
     /**
      * Returns the value of the field leftLit
      *
-     * @return the value of the field leftLit
+     * @return a simulation of the left light. If the value is set to true the
+     * light is on and the cars stop; if the value is set to false the light is
+     * off and the cars go
      */
     public synchronized boolean getLeftLit() {
 
@@ -117,7 +123,9 @@ public class TrafficLight {
     /**
      * Returns the value of the field rightLit
      *
-     * @return the value of the field rightLit
+     * @return a simulation of the right light. If the value is set to true the
+     * light is on and the cars stop; if the value is set to false the light is
+     * off and the cars go
      */
     public synchronized boolean getRightLit() {
 
@@ -128,7 +136,9 @@ public class TrafficLight {
     /**
      * Sets the value of the field downLit
      *
-     * @param downLit the value to set to the field downLit
+     * @param downLit a simulation of the bottom light. If the value is set to
+     * true the light is on and the cars stop; if the value is set to false the
+     * light is off and the cars go
      */
     public synchronized void setDownLit(boolean downLit) {
 
@@ -140,7 +150,9 @@ public class TrafficLight {
     /**
      * Sets the value of the field leftLit
      *
-     * @param leftLit the value to set to the field leftLit
+     * @param leftLit a simulation of the left light. If the value is set to
+     * true the light is on and the cars stop; if the value is set to false the
+     * light is off and the cars go
      */
     public synchronized void setLeftLit(boolean leftLit) {
 
@@ -152,7 +164,9 @@ public class TrafficLight {
     /**
      * Sets the value of the field rightLit
      *
-     * @param rightLit the value to set to the field rightLit
+     * @param rightLit a simulation of the right light. If the value is set to
+     * true the light is on and the cars stop; if the value is set to false the
+     * light is off and the cars go
      */
     public synchronized void setRightLit(boolean rightLit) {
 
@@ -164,7 +178,9 @@ public class TrafficLight {
     /**
      * Sets the value of the field upLit
      *
-     * @param upLit the value to set to the field upLit
+     * @param upLit a simulation of the top light. If the value is set to true
+     * the light is on and the cars stop; if the value is set to false the light
+     * is off and the cars go
      */
     public synchronized void setUpLit(boolean upLit) {
 
