@@ -48,7 +48,7 @@ public class AddCarsThread extends Thread {
     @Override
     public void run() {
 
-        while (crossroad.getDownCars().size() + crossroad.getLeftCars().size() + crossroad.getRightCars().size() + crossroad.getUpCars().size() <= 15) {
+        while (crossroad.getDownCars().size() + crossroad.getLeftCars().size() + crossroad.getRightCars().size() + crossroad.getUpCars().size() < 15) {
 
             try {
 
