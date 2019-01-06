@@ -235,6 +235,20 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
     }
 
     @Override
+    public void carAdded(Car source) {
+
+        animateAddedCar(source);
+        source.start();
+        System.out.println("The car " + source + " just arrived at the crossroad");
+        System.out.println("There are now " + crossroad.getDownCars().size() + " on the bottom.");
+        System.out.println("There are now " + crossroad.getLeftCars().size() + " to the left.");
+        System.out.println("There are now " + crossroad.getUpCars().size() + " on the top.");
+        System.out.println("There are now " + crossroad.getRightCars().size() + " to the right.");
+        System.out.println("Since the beginning of the program's execution, " + crossroad.getAddedCarsNumber() + " car" + (crossroad.getAddedCarsNumber() == 1 ? " was" : "s were") + " added");
+
+    }
+
+    @Override
     public void carPassed(Car source) {
 
         System.out.println("The car " + source + " has passed");
@@ -242,11 +256,20 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         System.out.println("There are now " + crossroad.getLeftCars().size() + " to the left.");
         System.out.println("There are now " + crossroad.getUpCars().size() + " on the top.");
         System.out.println("There are now " + crossroad.getRightCars().size() + " to the right.");
+        System.out.println("Since the beginning of the program's execution, " + crossroad.getAddedCarsNumber() + " car" + (crossroad.getPassedCarsNumber() == 1 ? " was" : "s have") + " passed");
 
     }
 
     @Override
-    public void carAdded(Car source) {
+    public void carPassing(Car source) {
+
+        animatePassingCar(source);
+
+    }
+
+    public void animateAddedCar(Car source) {
+
+        final TrafficLight trafficLight = crossroad.getTrafficLight();
 
         switch (source.getLocation()) {
 
