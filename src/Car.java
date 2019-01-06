@@ -25,7 +25,7 @@ import java.awt.Point;
  * @version 29-dic-2018
  *
  */
-public class Car extends Thread {
+ public class Car extends Thread {
 
     /**
      * The coordinates in which to draw the car
@@ -87,7 +87,7 @@ public class Car extends Thread {
     /**
      * Gets the value of the field location
      *
-     * @return the value of the field location
+     * @return the starting point where a car comes into the crossroad
      */
     public Side getLocation() {
 
@@ -98,7 +98,7 @@ public class Car extends Thread {
     /**
      * Gets the value of the field direction
      *
-     * @return the value of the field direction
+     * @return the side where a car exits the crossroad
      */
     public Side getDirection() {
 
@@ -109,7 +109,8 @@ public class Car extends Thread {
     /**
      * Gets the value of the field hasPassed
      *
-     * @return the value of the field hasPassed
+     * @return a boolean value that specifies if the car has already passed the
+     * crossroad
      */
     public boolean getHasPassed() {
 
@@ -120,7 +121,8 @@ public class Car extends Thread {
     /**
      * Gets the value of the field canPass
      *
-     * @return the value of the field canPass
+     * @return a boolean value that specifies if the car can pass the traffic
+     * light (true) or not (false)
      */
     public boolean getCanPass() {
 
