@@ -720,4 +720,83 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    private synchronized void moveCarToLight(Car car) {
+
+        int passedCarsNum = 0;
+
+        switch (car.getLocation()) {
+
+            case Down:
+                List<Car> downCars = crossroad.getDownCars();
+                for (int i = 0; i < downCars.indexOf(car); ++i) {
+
+                    Car currentCar = downCars.get(i);
+                    if (currentCar.getCanPass()) {
+                        ++passedCarsNum;
+                    }
+
+                }
+                while (car.position.y > downLight.y + RADIUS * (2 + (downCars.indexOf(car) - passedCarsNum) * 2) + MARGIN) {
+
+                    animateCarMovingUp(car);
+
+                }
+                break;
+
+            case Left:
+                List<Car> leftCars = crossroad.getLeftCars();
+                for (int i = 0; i < leftCars.indexOf(car); ++i) {
+
+                    Car currentCar = leftCars.get(i);
+                    if (currentCar.getCanPass()) {
+                        ++passedCarsNum;
+                    }
+
+                }
+                while (car.position.x + RADIUS * 2 < leftLight.x - MARGIN - RADIUS * ((leftCars.indexOf(car) - passedCarsNum) * 2)) {
+
+                    animateCarMovingRight(car);
+
+                }
+                break;
+
+            case Right:
+                List<Car> rightCars = crossroad.getRightCars();
+                for (int i = 0; i < rightCars.indexOf(car); ++i) {
+                    Car currentCar = rightCars.get(i);
+
+                    if (currentCar.getCanPass()) {
+                        ++passedCarsNum;
+                    }
+
+                }
+                while (car.position.x > rightLight.x + RADIUS * (2 + (rightCars.indexOf(car) - passedCarsNum) * 2) + MARGIN) {
+
+                    animateCarMovingLeft(car);
+
+                }
+                break;
+
+            case Up:
+                List<Car> upCars = crossroad.getUpCars();
+                for (int i = 0; i < upCars.indexOf(car); ++i) {
+                    Car currentCar = upCars.get(i);
+
+                    if (currentCar.getCanPass()) {
+                        ++passedCarsNum;
+                    }
+
+                }
+                while (car.position.y + RADIUS * 2 < upLight.y - MARGIN - RADIUS * ((upCars.indexOf(car) - passedCarsNum) * 2)) {
+
+                    animateCarMovingDown(car);
+
+                }
+                break;
+
+        }
+        car.isAtLight = true;
+
+    }
+
 }
