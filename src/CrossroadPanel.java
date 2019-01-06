@@ -359,116 +359,191 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     public void animatePassingCar(Car source) {
 
-        switch (source.getLocation()) {
+        if (source.getCanPass()) {
 
-            case Down:
-                while (source.position.y + RADIUS * 2 > getHeight() / 2) {
+            //Move car to center
+            switch (source.getLocation()) {
 
-                    source.position.y -= RADIUS / 2;
-                    repaint(source.position.x, source.position.y + RADIUS / 2, RADIUS * 2, RADIUS * 2);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
+                case Down:
+
+                    while (source.position.y + (source.getDirection().equals(Position.Right) ? RADIUS * 2 : 0) > getHeight() / 2) {
+
+                        if (source.position.y >= downLight.y + RADIUS * 2 + MARGIN) {
+
+                            if (source.position.y == downLight.y + RADIUS * 2 + MARGIN) {
+
+                                source.isAtLight = true;
+
+                            }
+                            source.setCanPass(!crossroad.getTrafficLight().getDownLit());
+
+                        } else if (!source.getCanPass()) {
+
+                            source.setCanPass(true);
+
+                        }
+
+                        if (source.getCanPass()) {
+
+                            animateCarMovingUp(source);
+
+                        } else if (!source.isAtLight) {
+
+                            moveCarToLight(source);
+
+                        }
+
                     }
+                    break;
 
-                }
-                break;
+                case Left:
+                    while (source.position.x + (source.getDirection().equals(Position.Down) ? RADIUS * 2 : 0) < getWidth() / 2) {
 
-            case Left:
-                while (source.position.x + RADIUS < getWidth() / 2) {
+                        if (source.position.x + RADIUS * 2 <= leftLight.x - MARGIN) {
 
-                    source.position.x += RADIUS / 2;
-                    repaint(source.position.x - RADIUS / 2, source.position.y, RADIUS * 2, RADIUS * 2);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
+                            source.setCanPass(!crossroad.getTrafficLight().getLeftLit());
+
+                        } else if (!source.getCanPass()) {
+
+                            source.setCanPass(true);
+
+                        }
+
+                        if (source.getCanPass()) {
+
+                            animateCarMovingRight(source);
+
+                        } else {
+
+                            moveCarToLight(source);
+
+                        }
+
                     }
+                    break;
 
-                }
-                break;
+                case Right:
+                    while (source.position.x + (source.getDirection().equals(Position.Down) ? RADIUS * 2 : 0) > getWidth() / 2) {
 
-            case Right:
-                while (source.position.x + RADIUS > getWidth() / 2) {
+                        if (source.position.x >= rightLight.x + RADIUS * 2 + MARGIN) {
 
-                    source.position.x -= RADIUS / 2;
-                    repaint(source.position.x + RADIUS / 2, source.position.y, RADIUS * 2, RADIUS * 2);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
+                            source.setCanPass(!crossroad.getTrafficLight().getRightLit());
+
+                        } else if (!source.getCanPass()) {
+
+                            source.setCanPass(true);
+
+                        }
+
+                        if (source.getCanPass()) {
+
+                            animateCarMovingLeft(source);
+
+                        } else {
+
+                            moveCarToLight(source);
+
+                        }
+
                     }
+                    break;
 
-                }
-                break;
+                case Up:
+                    while (source.position.y + (source.getDirection().equals(Position.Right) ? RADIUS * 2 : 0) < getHeight() / 2) {
 
-            case Up:
-                while (source.position.y + RADIUS * 2 < getHeight() / 2) {
+                        if (source.position.y + RADIUS * 2 <= upLight.y - MARGIN) {
 
-                    source.position.y += RADIUS / 2;
-                    repaint(source.position.x, source.position.y - RADIUS / 2, RADIUS * 2, RADIUS + RADIUS / 2);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
+                            source.setCanPass(!crossroad.getTrafficLight().getUpLit());
+
+                        } else if (!source.getCanPass()) {
+
+                            source.setCanPass(true);
+
+                        }
+
+                        if (source.getCanPass()) {
+
+                            animateCarMovingDown(source);
+
+                        } else {
+
+                            moveCarToLight(source);
+
+                        }
+
                     }
+                    break;
 
-                }
-                break;
+            }
 
         }
 
-        switch (source.getDirection()) {
+        if (source.getCanPass()) {
 
-            case Down:
-                while (source.position.y < getHeight()) {
+            //Move car to destination
+            switch (source.getDirection()) {
 
-                    source.position.y += RADIUS / 2;
-                    repaint(source.position.x, source.position.y - RADIUS / 2, RADIUS * 2, RADIUS * 2);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
+                case Down:
+                    while (source.position.y < getHeight()) {
+
+                        animateCarMovingDown(source);
+
                     }
 
-                }
-                break;
+                    if (source.position.y >= getHeight()) {
 
-            case Left:
-                while (source.position.x + RADIUS * 2 > 0) {
+                        source.setHasPassed(true);
 
-                    source.position.x -= RADIUS / 2;
-                    repaint(source.position.x + RADIUS / 2, source.position.y, RADIUS * 2, RADIUS * 2);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
+                    }
+                    break;
+
+                case Left:
+                    while (source.position.x + RADIUS * 2 > 0) {
+
+                        animateCarMovingLeft(source);
+
                     }
 
-                }
-                break;
+                    if (source.position.x + RADIUS * 2 <= 0) {
 
-            case Right:
-                while (source.position.x < getWidth()) {
+                        source.setHasPassed(true);
 
-                    source.position.x += RADIUS / 2;
-                    repaint(source.position.x - RADIUS / 2, source.position.y, RADIUS * 2, RADIUS * 2);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
+                    }
+                    break;
+
+                case Right:
+                    while (source.position.x < getWidth()) {
+
+                        animateCarMovingRight(source);
+
                     }
 
-                }
-                break;
+                    if (source.position.x >= getWidth()) {
 
-            case Up:
-                while (source.position.y + RADIUS * 2 > 0) {
+                        source.setHasPassed(true);
 
-                    source.position.y -= RADIUS / 2;
-                    repaint(source.position.x, source.position.y + RADIUS / 2, RADIUS * 2, RADIUS * 2);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
+                    }
+                    break;
+
+                case Up:
+                    while (source.position.y + RADIUS * 2 > 0) {
+
+                        animateCarMovingUp(source);
+
                     }
 
-                }
-                break;
+                    if (source.position.y + RADIUS * 2 <= 0) {
 
+                        source.setHasPassed(true);
+
+                    }
+                    break;
+
+            }
+
+        }
+
+    }
         }
 
     }
