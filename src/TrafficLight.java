@@ -130,7 +130,7 @@ public class TrafficLight {
      *
      * @param downLit the value to set to the field downLit
      */
-    public void setDownLit(boolean downLit) {
+    public synchronized void setDownLit(boolean downLit) {
 
         this.downLit = downLit;
         System.out.println("Turning " + (downLit ? "on" : "off") + " down");
@@ -142,7 +142,7 @@ public class TrafficLight {
      *
      * @param leftLit the value to set to the field leftLit
      */
-    public void setLeftLit(boolean leftLit) {
+    public synchronized void setLeftLit(boolean leftLit) {
 
         this.leftLit = leftLit;
         System.out.println("Turning " + (leftLit ? "on" : "off") + " left");
@@ -154,7 +154,7 @@ public class TrafficLight {
      *
      * @param rightLit the value to set to the field rightLit
      */
-    public void setRightLit(boolean rightLit) {
+    public synchronized void setRightLit(boolean rightLit) {
 
         this.rightLit = rightLit;
         System.out.println("Turning " + (rightLit ? "on" : "off") + " right");
@@ -166,7 +166,7 @@ public class TrafficLight {
      *
      * @param upLit the value to set to the field upLit
      */
-    public void setUpLit(boolean upLit) {
+    public synchronized void setUpLit(boolean upLit) {
 
         this.upLit = upLit;
         System.out.println("Turning " + (upLit ? "on" : "off") + " up");
