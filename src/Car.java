@@ -18,7 +18,8 @@ import java.awt.Point;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * La classe Car è
+ * The class Car represents a car that is approaching a crossroad with the
+ * intention of crossing it to get to a different side
  *
  * @author Matan Davidi
  * @version 29-dic-2018
@@ -26,21 +27,54 @@ import java.awt.Point;
  */
 public class Car extends Thread {
 
+    /**
+     * The coordinates in which to draw the car
+     */
     public Point position;
 
-    private Position location;
+    /**
+     * The starting point where a car comes into the crossroad
+     */
+    private Side location;
 
-    private Position direction;
+    /**
+     * The side where a car exits the crossroad
+     */
+    private Side direction;
 
+    /**
+     * The crossroad where the car is located
+     */
     private Crossroad crossroad;
 
+    /**
+     * A boolean value that specifies if the car can pass the traffic light
+     * (true) or not (false)
+     */
     private boolean canPass;
 
+    /**
+     * A boolean value that specifies if the car has already passed the
+     * crossroad
+     */
     private boolean hasPassed;
 
+    /**
+     * A boolean value that specifies whether or not the car's position
+     * correspond's to one of the lights'
+     */
     public boolean isAtLight;
 
-    public Car(Point position, Position location, Position direction, Crossroad crossroad) {
+    /**
+     * Instances new objects of type Car, allowing to specify a value to assign
+     * to the fields position, location, direction and crossroad
+     *
+     * @param position the coordinates in which to draw the car
+     * @param location the starting point where a car comes into the crossroad
+     * @param direction the side where a car exits the crossroad
+     * @param crossroad the crossroad where the car is located
+     */
+    public Car(Point position, Side location, Side direction, Crossroad crossroad) {
 
         super();
         this.position = position;
@@ -50,31 +84,56 @@ public class Car extends Thread {
 
     }
 
-    public Position getLocation() {
+    /**
+     * Gets the value of the field location
+     *
+     * @return the value of the field location
+     */
+    public Side getLocation() {
 
         return location;
 
     }
 
-    public Position getDirection() {
+    /**
+     * Gets the value of the field direction
+     *
+     * @return the value of the field direction
+     */
+    public Side getDirection() {
 
         return direction;
 
     }
 
+    /**
+     * Gets the value of the field hasPassed
+     *
+     * @return the value of the field hasPassed
+     */
     public boolean getHasPassed() {
 
         return hasPassed;
 
     }
 
+    /**
+     * Gets the value of the field canPass
+     *
+     * @return the value of the field canPass
+     */
     public boolean getCanPass() {
 
         return canPass;
 
     }
 
-    private void setLocation(Position location) {
+    /**
+     * Sets the value of the field location
+     *
+     * @param location the starting point where a car comes into the crossroad
+     */
+    private void setLocation(Side location) {
 
         if (location != direction) {
 
@@ -84,7 +143,12 @@ public class Car extends Thread {
 
     }
 
-    private void setDirection(Position direction) {
+    /**
+     * Sets the value of the field direction
+     *
+     * @param direction the side where a car exits the crossroad
+     */
+    private void setDirection(Side direction) {
 
         if (direction != location) {
 
@@ -94,6 +158,12 @@ public class Car extends Thread {
 
     }
 
+    /**
+     * Sets the value of the field canPass
+     *
+     * @param canPass a boolean value that specifies if the car can pass the
+     * traffic light (true) or not (false)
+     */
     public void setCanPass(boolean canPass) {
 
         if (canPass != this.canPass) {
@@ -104,6 +174,12 @@ public class Car extends Thread {
 
     }
 
+    /**
+     * Sets the value of the field hasPassed
+     *
+     * @param hasPassed a boolean value that specifies if the car has already
+     * passed the crossroad
+     */
     public void setHasPassed(boolean hasPassed) {
 
         if (hasPassed != this.hasPassed) {
@@ -150,6 +226,11 @@ public class Car extends Thread {
 
     }
 
+    /**
+     * Allows to update the crossroad's field trafficLight
+     *
+     * @param trafficLight the crossroad's lights
+     */
     public void updateTrafficLight(TrafficLight trafficLight) {
 
         crossroad.setTrafficLight(trafficLight);
