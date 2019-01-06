@@ -40,9 +40,7 @@ public class CrossroadSimulatorForm extends javax.swing.JFrame {
         crossroadPanel = new CrossroadPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.BorderLayout());
-
-        crossroadPanel.setPreferredSize(new java.awt.Dimension(400, 300));
+        setPreferredSize(new java.awt.Dimension(400, 300));
         getContentPane().add(crossroadPanel, java.awt.BorderLayout.CENTER);
 
         pack();
