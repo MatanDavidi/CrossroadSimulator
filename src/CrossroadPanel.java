@@ -360,7 +360,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
                 case Down:
 
-                    while (source.position.y + (source.getDirection().equals(Position.Right) ? RADIUS * 2 : 0) > getHeight() / 2) {
+                    while (source.position.y + (source.getDirection().equals(Side.Right) ? RADIUS * 2 : 0) > getHeight() / 2) {
 
                         if (source.position.y >= downLight.y + RADIUS * 2 + MARGIN) {
 
@@ -391,7 +391,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
                     break;
 
                 case Left:
-                    while (source.position.x + (source.getDirection().equals(Position.Down) ? RADIUS * 2 : 0) < getWidth() / 2) {
+                    while (source.position.x + (source.getDirection().equals(Side.Down) ? RADIUS * 2 : 0) < getWidth() / 2) {
 
                         if (source.position.x + RADIUS * 2 <= leftLight.x - MARGIN) {
 
@@ -417,7 +417,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
                     break;
 
                 case Right:
-                    while (source.position.x + (source.getDirection().equals(Position.Down) ? RADIUS * 2 : 0) > getWidth() / 2) {
+                    while (source.position.x + (source.getDirection().equals(Side.Down) ? RADIUS * 2 : 0) > getWidth() / 2) {
 
                         if (source.position.x >= rightLight.x + RADIUS * 2 + MARGIN) {
 
@@ -443,7 +443,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
                     break;
 
                 case Up:
-                    while (source.position.y + (source.getDirection().equals(Position.Right) ? RADIUS * 2 : 0) < getHeight() / 2) {
+                    while (source.position.y + (source.getDirection().equals(Side.Right) ? RADIUS * 2 : 0) < getHeight() / 2) {
 
                         if (source.position.y + RADIUS * 2 <= upLight.y - MARGIN) {
 

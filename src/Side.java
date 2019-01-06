@@ -19,34 +19,31 @@
  *
  * @author Matan Davidi
  */
-public class PositionClass {
+public enum Side {
 
-    public static Position getRandomPosition() {
+    Up,
+    Down,
+    Left,
+    Right;
 
-        Position re;
+    @Override
+    public String toString() {
 
-        switch ((int) (Math.random() * 4)) {
+        switch (this) {
 
-            case 0:
-                re = Position.Up;
-                break;
+            case Up:
+                return "up";
 
-            case 1:
-                re = Position.Down;
-                break;
+            case Down:
+                return "down";
 
-            case 2:
-                re = Position.Left;
-                break;
+            case Left:
+                return "left";
 
             default:
-                re = Position.Right;
-                break;
+                return "right";
 
         }
 
-        return re;
-
     }
-
 }

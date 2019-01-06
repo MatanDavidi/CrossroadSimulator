@@ -82,13 +82,13 @@ public class AddCarsThread extends Thread {
             } catch (InterruptedException ex) {
             }
 
-            Position currentLocation;
-            Position direction;
+            Side currentLocation;
+            Side direction;
 
             do {
 
-                currentLocation = PositionClass.getRandomPosition();
-                direction = PositionClass.getRandomPosition();
+                currentLocation = SideClass.getRandomPosition();
+                direction = SideClass.getRandomPosition();
 
             } while (currentLocation == direction);
 
