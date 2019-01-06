@@ -25,6 +25,10 @@ import javax.swing.JPanel;
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
+ * Contains an instance of Crossroad and prints the traffic lights and cars that
+ * come and go to and from the crossroad. The user can interact with the traffic
+ * lights by clicking on them which will make them change from green to red and
+ * from red to green, while the cars will adapt to the traffic lights
  *
  * @author Matan Davidi
  * @version 31-dic-2018
@@ -32,24 +36,72 @@ import javax.swing.JPanel;
  */
 public class CrossroadPanel extends JPanel implements CrossroadListener, MouseListener {
 
+    /**
+     * The crossroad to represent graphically
+     */
     private Crossroad crossroad;
 
+    /**
+     * The length, in pixels, of the radius of every circle that is printed
+     */
     private final int RADIUS;
 
+    /**
+     * The length, in pixels, of the margin between the lights and the road
+     */
     private final int MARGIN;
+
+    /**
+     * The time to wait between one frame of the cars' animations and the other
+     */
     public final long FRAMES_TIMEOUT;
+
+    /**
+     * The top left coordinate of the circle that represents the left traffic
+     * light
+     */
     private Point leftLight;
 
+    /**
+     * The top left coordinate of the circle that represents the top traffic
+     * light
+     */
     private Point upLight;
 
+    /**
+     * The top left coordinate of the circle that represents the right traffic
+     * light
+     */
     private Point rightLight;
 
+    /**
+     * The top left coordinate of the circle that represents the bottom traffic
+     * light
+     */
     private Point downLight;
 
+    /**
+     * Instances new objects of type CrossroadPanel assigning default values to
+     * the fields RADIUS, MARGIN; FRAME_TIMEOUT and crossroad
+     */
     public CrossroadPanel() {
 
+        this(10, 5, 100, new Crossroad());
 
+    }
 
+    /**
+     * Instances new objects of type CrossroadPanel allowing to specify a value
+     * to assign to the fields RADIUS, MARGIN, FRAMES_TIMEOUT and crossroad
+     *
+     * @param RADIUS the length, in pixels, of the radius of every circle that
+     * is printed
+     * @param MARGIN the length, in pixels, of the margin between the lights and
+     * the road
+     * @param FRAMES_TIMEOUT the time to wait between one frame of the cars'
+     * animations and the other
+     * @param crossroad the crossroad to represent graphically
+     */
     public CrossroadPanel(int RADIUS, int MARGIN, long FRAMES_TIMEOUT, Crossroad crossroad) {
 
         this.RADIUS = RADIUS;
@@ -81,6 +133,11 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Calculates the coordinates to assign to the fields leftLight, upLight,
+     * rightLight and downLight, so the traffic lights are always in the middle
+     * of the panel
+     */
     private void updateLightPositions() {
 
         leftLight = new Point(getWidth() / 2 - RADIUS * 3, getHeight() / 2 - RADIUS);
@@ -90,6 +147,11 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Paints the traffic lights in the middle of the panel
+     *
+     * @param g the Graphics object to protect
+     */
     private void paintLights(Graphics g) {
 
         //Down
@@ -146,6 +208,11 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Paints the cars that are coming or going to or from the crossroad
+     *
+     * @param g the Graphics object to protect
+     */
     private void paintCars(Graphics g) {
 
         List<Car> leftCars = crossroad.getLeftCars();
@@ -210,12 +277,6 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
-    private String getIdString(Car car) {
-
-        return Integer.toString((int) car.getId() - 19);
-
-    }
-
     private void paintRoad(Graphics g) {
 
         //Top
@@ -233,6 +294,18 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         //Right
         g.drawRect(rightLight.x + RADIUS * 2 + MARGIN, rightLight.y - RADIUS, getWidth() - (rightLight.x + RADIUS * 2 + MARGIN), RADIUS * 4);
         g.drawLine(getWidth(), rightLight.y + RADIUS, rightLight.x + RADIUS * 2 + MARGIN, rightLight.y + RADIUS);
+
+    }
+
+    /**
+     * Gets the id of a car and converts it to a String
+     *
+     * @param car the machine to get the id of
+     * @return a string containing the id of the car
+     */
+    private String getIdString(Car car) {
+
+        return Integer.toString((int) car.getId() - 19);
 
     }
 
@@ -269,6 +342,13 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Animates the adding of the car by showing the car going from outside the
+     * panel to the end of the line on one of the sides dictated by the value of
+     * the car's location field
+     *
+     * @param source the car to animate
+     */
     public void animateAddedCar(Car source) {
 
         final TrafficLight trafficLight = crossroad.getTrafficLight();
@@ -353,6 +433,13 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Animates the passage of the car by showing the car going from traffic
+     * light to outside the panel from one of the sides dictated by the value of
+     * the car's destination field
+     *
+     * @param source the car to animate
+     */
     public void animatePassingCar(Car source) {
 
         if (source.getCanPass()) {
@@ -541,6 +628,11 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Moves the car a half radius to the right and repaints it
+     *
+     * @param source the car to move
+     */
     private void animateCarMovingRight(Car source) {
 
         source.position.x += RADIUS / 2;
@@ -552,6 +644,11 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Moves the car a half radius down and repaints it
+     *
+     * @param source the car to move
+     */
     private void animateCarMovingDown(Car source) {
 
         source.position.y += RADIUS / 2;
@@ -563,6 +660,11 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Moves the car a half radius up and repaints it
+     *
+     * @param source the car to move
+     */
     private void animateCarMovingUp(Car source) {
 
         source.position.y -= RADIUS / 2;
@@ -574,6 +676,11 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Moves the car a half radius to the left and repaints it
+     *
+     * @param source the car to move
+     */
     private void animateCarMovingLeft(Car source) {
 
         source.position.x -= RADIUS / 2;
@@ -585,6 +692,12 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Calls the repaint method with a clipping area that corresponds to the
+     * car's surface
+     *
+     * @param source the car to repaint
+     */
     private void repaintCar(Car source) {
 
         repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
@@ -652,6 +765,12 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Invoked when the mouse button has been clicked (pressed and released) on
+     * the top light
+     *
+     * @param e the event of the mouse
+     */
     private void upLightClicked(MouseEvent e) {
 
         TrafficLight tl = crossroad.getTrafficLight();
@@ -668,6 +787,12 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Invoked when the mouse button has been clicked (pressed and released) on
+     * the right light
+     *
+     * @param e the event of the mouse
+     */
     private void rightLightClicked(MouseEvent e) {
 
         TrafficLight tl = crossroad.getTrafficLight();
@@ -684,6 +809,12 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Invoked when the mouse button has been clicked (pressed and released) on
+     * the bottom light
+     *
+     * @param e the event of the mouse
+     */
     private void downLightClicked(MouseEvent e) {
 
         TrafficLight tl = crossroad.getTrafficLight();
@@ -700,6 +831,12 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Invoked when the mouse button has been clicked (pressed and released) on
+     * the left light
+     *
+     * @param e the event of the mouse
+     */
     private void leftLightClicked(MouseEvent e) {
 
         TrafficLight tl = crossroad.getTrafficLight();
@@ -716,6 +853,12 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
     }
 
+    /**
+     * Moves and animates a car moving forward towards the traffic light keeping
+     * an eventual line that may have formed previously
+     *
+     * @param car the car to move
+     */
     private synchronized void moveCarToLight(Car car) {
 
         int passedCarsNum = 0;
