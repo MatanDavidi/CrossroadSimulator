@@ -279,12 +279,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
                 while (source.position.y - RADIUS > downLight.y + RADIUS * (2 + (crossroad.getDownCars().size() - 1) * 2) + MARGIN) {
 
-                    source.position.y -= RADIUS / 2;
-                    repaint(source.position.x, source.position.y + RADIUS / 2, RADIUS * 2, RADIUS * 2 + RADIUS / 2);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
-                    }
+                    animateCarMovingUp(source);
 
                 }
 
@@ -299,12 +294,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
                 while (source.position.y + RADIUS < upLight.y - RADIUS * (2 + (crossroad.getUpCars().size() - 1) * 2) + MARGIN) {
 
-                    source.position.y += RADIUS / 2;
-                    repaint(source.position.x, source.position.y - RADIUS / 2, RADIUS * 2, RADIUS * 2 + RADIUS / 2);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
-                    }
+                    animateCarMovingDown(source);
 
                 }
 
@@ -319,12 +309,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
                 while (source.position.x + RADIUS < leftLight.x - (RADIUS * (2 + (crossroad.getLeftCars().size() - 1) * 2) + MARGIN)) {
 
-                    source.position.x += RADIUS / 2;
-                    repaint(source.position.x - RADIUS / 2, source.position.y, RADIUS * 2 + RADIUS / 2, RADIUS * 2);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
-                    }
+                    animateCarMovingRight(source);
 
                 }
                 repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2);
@@ -338,12 +323,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
                 while (source.position.x - RADIUS > rightLight.x + RADIUS * (2 + (crossroad.getRightCars().size() - 1) * 2) + MARGIN) {
 
-                    source.position.x -= RADIUS / 2;
-                    repaint(source.position.x + RADIUS / 2, source.position.y, RADIUS * 2 + RADIUS / 2, RADIUS * 2);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
-                    }
+                    animateCarMovingLeft(source);
 
                 }
 
