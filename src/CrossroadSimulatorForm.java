@@ -93,6 +93,6 @@ public class CrossroadSimulatorForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private CrossroadPanel crossroadPanel2;
+    private CrossroadPanel crossroadPanel;
     // End of variables declaration//GEN-END:variables
 }
