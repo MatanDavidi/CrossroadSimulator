@@ -37,22 +37,13 @@ public class CrossroadSimulatorForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        crossroadPanel2 = new CrossroadPanel();
+        crossroadPanel = new CrossroadPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout crossroadPanel2Layout = new javax.swing.GroupLayout(crossroadPanel2);
-        crossroadPanel2.setLayout(crossroadPanel2Layout);
-        crossroadPanel2Layout.setHorizontalGroup(
-            crossroadPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        crossroadPanel2Layout.setVerticalGroup(
-            crossroadPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(crossroadPanel2, java.awt.BorderLayout.CENTER);
+        crossroadPanel.setPreferredSize(new java.awt.Dimension(400, 300));
+        getContentPane().add(crossroadPanel, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
