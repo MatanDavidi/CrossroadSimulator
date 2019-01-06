@@ -544,6 +544,47 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         }
 
     }
+
+    private void animateCarMovingRight(Car source) {
+
+        source.position.x += RADIUS / 2;
+        repaint(source.position.x - RADIUS / 2, source.position.y, RADIUS * 2 + RADIUS / 2, RADIUS * 2);
+        try {
+            Thread.sleep(FRAMES_TIMEOUT);
+        } catch (InterruptedException ex) {
+        }
+
+    }
+
+    private void animateCarMovingDown(Car source) {
+
+        source.position.y += RADIUS / 2;
+        repaint(source.position.x, source.position.y - RADIUS / 2, RADIUS * 2, RADIUS * 2 + RADIUS / 2);
+        try {
+            Thread.sleep(FRAMES_TIMEOUT);
+        } catch (InterruptedException ex) {
+        }
+
+    }
+
+    private void animateCarMovingUp(Car source) {
+
+        source.position.y -= RADIUS / 2;
+        repaint(source.position.x, source.position.y, RADIUS * 2, RADIUS * 2 + RADIUS / 2);
+        try {
+            Thread.sleep(FRAMES_TIMEOUT);
+        } catch (InterruptedException ex) {
+        }
+
+    }
+
+    private void animateCarMovingLeft(Car source) {
+
+        source.position.x -= RADIUS / 2;
+        repaint(source.position.x, source.position.y, RADIUS * 2 + RADIUS / 2, RADIUS * 2);
+        try {
+            Thread.sleep(FRAMES_TIMEOUT);
+        } catch (InterruptedException ex) {
         }
 
     }
