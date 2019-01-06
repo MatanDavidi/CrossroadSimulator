@@ -65,6 +65,9 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
 
         updateLightPositions();
 
+        //Road
+        paintRoad(g);
+
         //Lights
         paintLights(g);
 
@@ -198,15 +201,42 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         for (int i = 0; i < upCars.size(); i++) {
 
             int y = startY - i * RADIUS * 2 - MARGIN;
-            String id = Integer.toString((int) upCars.get(i).getId());
+            Car car = upCars.get(i);
+            String id = getIdString(car);
 
             g.setColor(Color.YELLOW);
 
-            g.fillOval(upCars.get(i).position.x, upCars.get(i).position.y, RADIUS * 2, RADIUS * 2);
+            g.fillOval(car.position.x, car.position.y, RADIUS * 2, RADIUS * 2);
             g.setColor(Color.BLACK);
-            g.drawString(id, upCars.get(i).position.x + RADIUS, upCars.get(i).position.y + RADIUS);
+            g.drawString(id, car.position.x + RADIUS / 2, car.position.y + RADIUS);
 
         }
+
+    }
+
+    private String getIdString(Car car) {
+
+        return Integer.toString((int) car.getId() - 19);
+
+    }
+
+    private void paintRoad(Graphics g) {
+
+        //Top
+        g.drawRect(upLight.x - RADIUS, 0, RADIUS * 4, upLight.y - MARGIN);
+        g.drawLine(upLight.x + RADIUS, 0, upLight.x + RADIUS, upLight.y - MARGIN);
+
+        //Left
+        g.drawRect(0, leftLight.y - RADIUS, leftLight.x - MARGIN, RADIUS * 4);
+        g.drawLine(0, leftLight.y + RADIUS, leftLight.x - MARGIN, rightLight.y + RADIUS);
+
+        //Bottom
+        g.drawRect(downLight.x - RADIUS, downLight.y + RADIUS * 2 + MARGIN, RADIUS * 4, getHeight() - (downLight.y + RADIUS * 2 + MARGIN));
+        g.drawLine(downLight.x + RADIUS, getHeight(), downLight.x + RADIUS, downLight.y + RADIUS * 2 + MARGIN);
+
+        //Right
+        g.drawRect(rightLight.x + RADIUS * 2 + MARGIN, rightLight.y - RADIUS, getWidth() - (rightLight.x + RADIUS * 2 + MARGIN), RADIUS * 4);
+        g.drawLine(getWidth(), rightLight.y + RADIUS, rightLight.x + RADIUS * 2 + MARGIN, rightLight.y + RADIUS);
 
     }
 
