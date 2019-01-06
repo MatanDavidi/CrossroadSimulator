@@ -278,6 +278,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
                 source.position.y = getHeight();
 
                 while (source.position.y > downLight.y + RADIUS * (2 + (crossroad.getDownCars().size() - 1) * 2) + MARGIN) {
+                while (source.position.y - RADIUS > downLight.y + RADIUS * (2 + (crossroad.getDownCars().size() - 1) * 2) + MARGIN) {
 
                     source.position.y -= RADIUS / 2;
                     repaint(source.position.x, source.position.y + RADIUS / 2, RADIUS * 2, RADIUS * 2 + RADIUS / 2);
@@ -298,6 +299,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
                 source.position.y = 0;
 
                 while (source.position.y < upLight.y - RADIUS * (2 + (crossroad.getUpCars().size() - 1) * 2) - MARGIN) {
+                while (source.position.y + RADIUS < upLight.y - RADIUS * (2 + (crossroad.getUpCars().size() - 1) * 2) + MARGIN) {
 
                     source.position.y += RADIUS / 2;
                     repaint(source.position.x, source.position.y - RADIUS / 2, RADIUS * 2, RADIUS * 2 + RADIUS / 2);
@@ -318,6 +320,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
                 source.position.y = leftLight.y - RADIUS;
 
                 while (source.position.x < leftLight.x - RADIUS * (2 + (crossroad.getLeftCars().size() - 1) * 2) - MARGIN) {
+                while (source.position.x + RADIUS < leftLight.x - (RADIUS * (2 + (crossroad.getLeftCars().size() - 1) * 2) + MARGIN)) {
 
                     source.position.x += RADIUS / 2;
                     repaint(source.position.x - RADIUS / 2, source.position.y, RADIUS * 2 + RADIUS / 2, RADIUS * 2);
@@ -337,6 +340,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
                 source.position.y = rightLight.y + RADIUS;
 
                 while (source.position.x > rightLight.x + RADIUS * (2 + (crossroad.getRightCars().size() - 1) * 2) - MARGIN) {
+                while (source.position.x - RADIUS > rightLight.x + RADIUS * (2 + (crossroad.getRightCars().size() - 1) * 2) + MARGIN) {
 
                     source.position.x -= RADIUS / 2;
                     repaint(source.position.x + RADIUS / 2, source.position.y, RADIUS * 2 + RADIUS / 2, RADIUS * 2);
