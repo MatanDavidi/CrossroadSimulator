@@ -44,6 +44,8 @@ public class Crossroad {
 
     private final Object lock2;
 
+    private int carsNumber;
+
     public Crossroad() {
 
         this(new TrafficLight(),
@@ -64,6 +66,8 @@ public class Crossroad {
 
         lock1 = new Object();
         lock2 = new Object();
+
+        carsNumber = 0;
 
         carsAdder = new AddCarsThread(this);
         carsAdder.start();
@@ -97,6 +101,12 @@ public class Crossroad {
     public List<Car> getUpCars() {
 
         return upCars;
+
+    }
+
+    public int getCarsNumber() {
+
+        return carsNumber;
 
     }
 
