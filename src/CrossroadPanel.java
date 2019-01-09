@@ -80,6 +80,8 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
      */
     private Point downLight;
 
+    private int id;
+
     /**
      * Instances new objects of type CrossroadPanel assigning default values to
      * the fields RADIUS, MARGIN; FRAME_TIMEOUT and crossroad
@@ -107,6 +109,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         this.RADIUS = RADIUS;
         this.MARGIN = MARGIN;
         this.FRAMES_TIMEOUT = FRAMES_TIMEOUT;
+        id = 0;
 
         this.crossroad = crossroad;
 
@@ -224,7 +227,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         for (int i = 0; i < leftCars.size(); ++i) {
 
             Car car = leftCars.get(i);
-            String id = getIdString(car);
+            String id = getIdString();
 
             g.setColor(Color.YELLOW);
             g.fillOval(car.position.x, car.position.y, RADIUS * 2, RADIUS * 2);
@@ -237,7 +240,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         for (int i = 0; i < downCars.size(); ++i) {
 
             Car car = downCars.get(i);
-            String id = getIdString(car);
+            String id = getIdString();
 
             g.setColor(Color.YELLOW);
 
@@ -251,7 +254,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         for (int i = 0; i < rightCars.size(); ++i) {
 
             Car car = rightCars.get(i);
-            String id = getIdString(car);
+            String id = getIdString();
 
             g.setColor(Color.YELLOW);
 
@@ -265,7 +268,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         for (int i = 0; i < upCars.size(); ++i) {
 
             Car car = upCars.get(i);
-            String id = getIdString(car);
+            String id = getIdString();
 
             g.setColor(Color.YELLOW);
 
@@ -298,19 +301,21 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
     }
 
     /**
-     * Gets the id of a car and converts it to a String
+     * Gets the id of a car, taken from the field id, and converts it to a
+     * String
      *
-     * @param car the machine to get the id of
      * @return a string containing the id of the car
      */
-    private String getIdString(Car car) {
+    private String getIdString() {
 
-        return Integer.toString((int) car.getId() - 19);
+        return Integer.toString(id);
 
     }
 
     @Override
     public void carAdded(Car source) {
+
+        ++id;
 
         animateAddedCar(source);
         source.start();
