@@ -221,7 +221,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         List<Car> rightCars = crossroad.getRightCars();
 
         //Left cars
-        for (int i = 0; i < leftCars.size(); i++) {
+        for (int i = 0; i < leftCars.size(); ++i) {
 
             Car car = leftCars.get(i);
             String id = getIdString(car);
@@ -234,7 +234,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         }
 
         //Bottom cars
-        for (int i = 0; i < downCars.size(); i++) {
+        for (int i = 0; i < downCars.size(); ++i) {
 
             Car car = downCars.get(i);
             String id = getIdString(car);
@@ -248,7 +248,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         }
 
         //Right cars
-        for (int i = 0; i < rightCars.size(); i++) {
+        for (int i = 0; i < rightCars.size(); ++i) {
 
             Car car = rightCars.get(i);
             String id = getIdString(car);
@@ -262,7 +262,7 @@ public class CrossroadPanel extends JPanel implements CrossroadListener, MouseLi
         }
 
         //Top cars
-        for (int i = 0; i < upCars.size(); i++) {
+        for (int i = 0; i < upCars.size(); ++i) {
 
             Car car = upCars.get(i);
             String id = getIdString(car);

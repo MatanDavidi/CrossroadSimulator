@@ -266,7 +266,7 @@ public class Crossroad {
 
             ++addedCarsNumber;
 
-            for (int i = 0; i < listeners.size(); i++) {
+            for (int i = 0; i < listeners.size(); ++i) {
 
                 CrossroadListener listener = listeners.get(i);
                 listener.carAdded(car);
@@ -328,7 +328,7 @@ public class Crossroad {
 
                 ++passedCarsNumber;
 
-                for (int i = 0; i < listeners.size(); i++) {
+                for (int i = 0; i < listeners.size(); ++i) {
 
                     CrossroadListener listener = listeners.get(i);
                     listener.carPassed(car);
